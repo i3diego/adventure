@@ -75,20 +75,20 @@ switcher = {
    "quit"    : quitGame    
 } 
 
-def evalCommand(comand, **kwargs):
+def evalCommand(command, avatar):
     try:
-        return switcher[command]()
-    except KeyError as err:
+        return switcher[command](command, avatar, current_room)
+    except KeyError:
         print('unknow command')
     
 
 print('Welcome try to escape')
-current_room = entrance
+current_room = map[avatar.x][avatar.y]
 
 while 1 < 2:
     print("You are currently here " +current_room.name)
     command = input("Enter command: ")
-    action = evalCommand(command, current_room = current_room, )
+    action = evalCommand(command, avatar), current_room
     print(map[0][1].name)
 
 

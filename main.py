@@ -1,5 +1,6 @@
 import sys
 from room import Room
+from player import Player
 
 """
 Main game loop lives here.
@@ -35,6 +36,7 @@ entrance = Room(sides_entrance,'light', [], 'entrance', (0,0))
 room1 = Room(sides_r1, 'light', [], 'room 1', (0,1))
 room2 = Room(sides_r2, 'light', [], 'room 2', (1,0))
 current_room = None
+avatar = Player()
 
 map = [[entrance, room1],[room2]]
 

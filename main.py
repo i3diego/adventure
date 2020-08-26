@@ -1,4 +1,5 @@
 import sys
+
 from room import Room
 from player import Player
 
@@ -14,7 +15,7 @@ print('Your commands can be "left", "right", "forward", "backward", "inspect", "
 sides_entrance = {
     "left" : 'wall',
     "right" : 'door',
-    "front" : 'wall',
+    "front" : 'door',
     "back" : 'wall'
 }
 
@@ -22,11 +23,11 @@ sides_r1 = {
     "left" : 'door',
     "right" : 'wall',
     "front" : 'wall',
-    "back" : 'wall'
+    "back" : 'door'
 }
 
 sides_r2 = {
-    "left" : 'wall',
+    "left" : 'door',
     "right" : 'wall',
     "front" : 'wall',
     "back" : 'door'
@@ -44,17 +45,24 @@ def quitGame(*args):
     print("I'm quitting")
     sys.exit()
 
-def move(**kwargs):
-    if (kwargs.current_room[kwargs.direction] == 'door'):
-        current_room = kwargs.next_room
-        print('you have entered '+ current_room.name)
-        return
-    if (current_room[kwargs.direction] == 'wall'):
-        print('you hit yourself on a wall "BONK"')
-        return
+def move(direction, avatar, current_room):
+    #left -> x -1
+    #right -> x +1
+    if (current_room.sides[direction] == 'door'):
+        if(direction == 'left'):
+            avatar.updateX(-1)
+        elif (direction == 'right'):
+            avatar.updateX(1)
+        elif (direction == 'front'):
+            avatar.updateY(1)
+        elif (direction == 'back'):
+            avatar.updateY(-1)
+    elif (current_room.sides[direction] == 'wall'):
+        print('you ran into a wall BONK')
+    current_room = map[avatar.x][avatar.y]
 
 def inspect(*args):
-    print('insepection')
+    print('inspection')
     #print(kwargs.current_room.objects)
 
 def printHelp(*args):
@@ -65,14 +73,14 @@ def light(*args):
     print('Torch lit')
 
 switcher = {
-   "left"    : move,
-   "right"   : move,
-   "forward" : move,
-   "backward": move,
-   "inspect" : inspect,
-   "help"    : printHelp,
-   "light"   : light,
-   "quit"    : quitGame    
+   "left"   : move,
+   "right"  : move,
+   "front"  : move,
+   "back"   : move,
+   "inspect": inspect,
+   "help"   : printHelp,
+   "light"  : light,
+   "quit"   : quitGame
 } 
 
 def evalCommand(command, avatar):
@@ -89,6 +97,6 @@ while 1 < 2:
     print("You are currently here " +current_room.name)
     command = input("Enter command: ")
     action = evalCommand(command, avatar), current_room
-    print(map[0][1].name)
+    current_room = map[avatar.x][avatar.y]
 
 

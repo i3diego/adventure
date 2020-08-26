@@ -40,7 +40,7 @@ avatar = Player()
 
 map = [[entrance, room1],[room2]]
 
-def quitGame():
+def quitGame(*args):
     print("I'm quitting")
     sys.exit()
 
@@ -53,15 +53,15 @@ def move(**kwargs):
         print('you hit yourself on a wall "BONK"')
         return
 
-def inspect(**kwargs):
+def inspect(*args):
     print('insepection')
     #print(kwargs.current_room.objects)
 
-def printHelp():
+def printHelp(*args):
     print(' You may use the following commands: ')
     print(commands)
 
-def light():
+def light(*args):
     print('Torch lit')
 
 switcher = {

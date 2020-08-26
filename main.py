@@ -24,11 +24,19 @@ sides_r1 = {
     "back" : 'wall'
 }
 
+sides_r2 = {
+    "left" : 'wall',
+    "right" : 'wall',
+    "front" : 'wall',
+    "back" : 'door'
+}
+
 entrance = Room(sides_entrance,'light', [], 'entrance', (0,0))
 room1 = Room(sides_r1, 'light', [], 'room 1', (0,1))
+room2 = Room(sides_r2, 'light', [], 'room 2', (1,0))
 current_room = None
 
-map = [[entrance, room1]]
+map = [[entrance, room1],[room2]]
 
 def quitGame():
     print("I'm quitting")

@@ -2,6 +2,7 @@ import sys
 
 from room import Room
 from player import Player
+import Map
 
 """
 Main game loop lives here.
@@ -9,8 +10,9 @@ Main game loop lives here.
 commands = ["left", "right", "forward", "backward", "inspect", "light", "help"]
 
 print('This is a text based adventure')
+room_number = input('Please input the number of Rooms you want to play: ')
+room_number = int(room_number)
 print('Your commands can be "left", "right", "forward", "backward", "inspect", "light" or "help" if you need a reminder')
-
 
 sides_entrance = {
     "left" : 'wall',
@@ -38,6 +40,12 @@ room1 = Room(sides_r1, 'light', [], 'room 1', (0,1))
 room2 = Room(sides_r2, 'light', [], 'room 2', (1,0))
 current_room = None
 avatar = Player()
+
+map = Map.createMap(room_number)
+Map.printMap(map)
+print('start')
+print(Map.determineStart(room_number))
+
 
 map = [[entrance, room1],[room2]]
 

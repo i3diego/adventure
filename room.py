@@ -11,3 +11,20 @@ class Room:
         self.objects = objects
         self.name = name
         self.coordinates = coordinates
+
+def randomizeRoom():
+    pass
+
+def createSides():
+    pass
+
+def light():
+    pass
+
+def createObjects():
+    pass
+
+def nameRoom():
+    pass
+
+

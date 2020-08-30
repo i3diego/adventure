@@ -1,4 +1,7 @@
 class Player:
+    """
+    Defines a player controles avatar, which has a positon and an invetory.
+    """
     def __init__(self):
         self.x = 0
         self.y = 0
@@ -24,3 +27,6 @@ class Player:
     
     def setY(self, new_y):
         self.y = new_y
+
+    def addItemtoIventory(item):
+        pass

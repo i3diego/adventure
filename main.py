@@ -14,6 +14,7 @@ room_number = input('Please input the number of Rooms you want to play: ')
 room_number = int(room_number)
 print('Your commands can be "left", "right", "forward", "backward", "inspect", "light" or "help" if you need a reminder')
 
+#mockup for testing purposes
 sides_entrance = {
     "left" : 'wall',
     "right" : 'door',
@@ -21,6 +22,7 @@ sides_entrance = {
     "back" : 'wall'
 }
 
+#mockup for testing purposes
 sides_r1 = {
     "left" : 'door',
     "right" : 'wall',
@@ -28,6 +30,7 @@ sides_r1 = {
     "back" : 'door'
 }
 
+#mockup for testing purposes
 sides_r2 = {
     "left" : 'door',
     "right" : 'wall',
@@ -35,6 +38,7 @@ sides_r2 = {
     "back" : 'door'
 }
 
+#mockup for testing purposes
 entrance = Room(sides_entrance,'light', [], 'entrance', (0,0))
 room1 = Room(sides_r1, 'light', [], 'room 1', (0,1))
 room2 = Room(sides_r2, 'light', [], 'room 2', (1,0))

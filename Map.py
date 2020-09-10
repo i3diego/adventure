@@ -1,23 +1,28 @@
 
 from random import randrange
 
-def createMap(number):
+def createMap(room_number):
     """
     Create a series of nested lists, which form the games map matrix. The matrix then gets filled with a player chosen number of rooms, in a random layout.
 
     number - The player ist asked for a number at the beginning of the game, which ist the used to determine the size of the matrix.
     """
-    y = 0
+    x = 0
     map =[]
     try:
-        number = int(number)
+        room_number = int(room_number)
     except:
         print('Please input a valid number without comma')
 
-    while(y < number):
-        tmp = [(y,0),(y,1),(y,2),(y,3),(y,4)]
-        map.append(tmp)
-        y = y+1
+    while(x < room_number):
+        y = 0
+        column = []
+        while(y < room_number):
+            column.append((x,y))
+            y +=1
+        map.append(column)
+        x +=1
+    print(map)
     return map
 
 def printMap(map):
@@ -32,15 +37,15 @@ def printMap(map):
             print(map[i][j], end=' ')
         print()
 
-def determineStart(number):
+def determineStart(room_number):
     """
     Creates the first set of coordinates, at which the player will spawn, also these coordinates will be the entrance.
 
     number - The player ist asked for a number at the beginning of the game, which ist the used to determine the size of the map matrix.
     """
 
-    x = randrange(0, number, 1)
-    y = randrange(0, number, 1)
+    x = randrange(0, room_number, 1)
+    y = randrange(0, room_number, 1)
     start = (x,y)
     return start
 

@@ -12,7 +12,7 @@ commands = ["left", "right", "forward", "backward", "inspect", "light", "help"]
 print('This is a text based adventure')
 room_number = input('Please input the number of Rooms you want to play: ')
 room_number = int(room_number)
-print('Your commands can be "left", "right", "forward", "backward", "inspect", "light" or "help" if you need a reminder')
+print('Your commands can be "left", "right", "front", "back", "inspect", "light" or "help" if you need a reminder')
 
 #mockup for testing purposes
 sides_entrance = {

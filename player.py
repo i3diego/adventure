@@ -28,5 +28,5 @@ class Player:
     def setY(self, new_y):
         self.y = new_y
 
-    def addItemtoIventory(item):
+    def addItemtoIventory(self, item):
         pass

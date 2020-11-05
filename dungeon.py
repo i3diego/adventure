@@ -18,7 +18,9 @@ class Dungeon:
 
         direction = choice(directions)
         current_room = rooms.pop()
+        print(current_room)
         start_room = Room(direction, current_room)
+        print(start_room)
         past_directions = []
         past_directions.append(direction)
 
@@ -34,10 +36,10 @@ class Dungeon:
             remaining_directions = set(directions) - set(current_room.occupied_directions()) - set(penultimate_direction)
 
             current_direction = sample(remaining_directions, 1)[0]
+
             next_room = rooms.pop()
             current_room.add_neighbour(current_direction, next_room)
             current_room = next_room
-        print(start_room)
 
 
 
